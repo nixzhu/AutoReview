@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name        = "AutoReview"
   s.version     = "0.1.0"
-  s.summary     = "App review."
+  s.summary     = "AutoReview for app review."
 
   s.description = <<-DESC
                    AutoReview has a nice logic for show prompt of app review.
