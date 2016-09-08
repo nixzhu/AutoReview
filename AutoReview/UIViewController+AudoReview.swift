@@ -20,30 +20,33 @@ extension UIViewController {
         let exponentialBackoffKey = "nixzhu_AutoReview_\(appVersion)_exponentialBackoffKey"
         let tryReviewOnTheAppStoreCountKey = "nixzhu_AutoReview_\(appVersion)_tryReviewOnTheAppStoreCountKey"
 
+        //let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = NSUserDefaults(suiteName: "")!
+
         func noNeedReviewOnTheAppStore() -> Bool {
-            return NSUserDefaults.standardUserDefaults().boolForKey(noNeedReviewOnTheAppStoreKey)
+            return userDefaults.boolForKey(noNeedReviewOnTheAppStoreKey)
         }
 
         func setNoNeedReviewOnTheAppStore() {
-            return NSUserDefaults.standardUserDefaults().setBool(true, forKey: noNeedReviewOnTheAppStoreKey)
+            return userDefaults.setBool(true, forKey: noNeedReviewOnTheAppStoreKey)
         }
 
         func exponentialBackoff() -> Int {
-            return (NSUserDefaults.standardUserDefaults().objectForKey(exponentialBackoffKey) as? Int) ?? info.initialExponentialBackoff
+            return (userDefaults.objectForKey(exponentialBackoffKey) as? Int) ?? info.initialExponentialBackoff
         }
 
         func increaseExponentialBackoff() {
             let newValue = exponentialBackoff() + 1
-            NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: exponentialBackoffKey)
+            userDefaults.setInteger(newValue, forKey: exponentialBackoffKey)
         }
 
         func tryReviewOnTheAppStoreCount() -> Int {
-            return NSUserDefaults.standardUserDefaults().integerForKey(tryReviewOnTheAppStoreCountKey)
+            return userDefaults.integerForKey(tryReviewOnTheAppStoreCountKey)
         }
 
         func increaseTryReviewOnTheAppStoreCount() {
             let newValue = tryReviewOnTheAppStoreCount() + 1
-            NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: tryReviewOnTheAppStoreCountKey)
+            userDefaults.setInteger(newValue, forKey: tryReviewOnTheAppStoreCountKey)
         }
 
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
