@@ -13,7 +13,7 @@ extension UIViewController {
 
     func remindUserToReview() {
 
-        let remindAction: dispatch_block_t = { [weak self] in
+        let remindAction: ()->() = { [weak self] in
 
             guard self?.view.window != nil else {
                 return
@@ -30,7 +30,7 @@ extension UIViewController {
             self?.autoreview_tryReviewApp(withInfo: info)
         }
 
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue(), remindAction)
+        let time = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: remindAction)
     }
 }

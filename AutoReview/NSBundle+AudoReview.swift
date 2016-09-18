@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension NSBundle {
+extension Bundle {
 
     static var autoreview_appVersion: String? {
-        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
 }
 
