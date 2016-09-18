@@ -9,7 +9,9 @@ AutoReview for app review.
 
 ## Requirements
 
-Swift 2.3, iOS 8.0
+Swift 3.0, iOS 8.0
+
+(Swift 2.3, use version 0.2.0)
 
 ## Usage
 
@@ -17,16 +19,16 @@ See the demo.
 
 ## Installation
 
-### CocoaPods
-
-```ruby
-pod 'AutoReview', '~> 0.2.0'
-```
-
 ### Carthage
 
 ```ogdl
-github "nixzhu/AutoReview" >= 0.2.0
+github "nixzhu/AutoReview" >= 1.0.0
+```
+
+### CocoaPods
+
+```ruby
+pod 'AutoReview', '~> 1.0.0'
 ```
 
 ## Contact
