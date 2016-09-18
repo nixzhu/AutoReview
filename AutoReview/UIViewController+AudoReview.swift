@@ -20,8 +20,7 @@ extension UIViewController {
         let exponentialBackoffKey = "nixzhu_AutoReview_\(appVersion)_exponentialBackoffKey"
         let tryReviewOnTheAppStoreCountKey = "nixzhu_AutoReview_\(appVersion)_tryReviewOnTheAppStoreCountKey"
 
-        //let userDefaults = NSUserDefaults.standardUserDefaults()
-        let userDefaults = UserDefaults(suiteName: "")!
+        let userDefaults = UserDefaults.standard
 
         func noNeedReviewOnTheAppStore() -> Bool {
             return userDefaults.bool(forKey: noNeedReviewOnTheAppStoreKey)
@@ -59,10 +58,10 @@ extension UIViewController {
                 increaseTryReviewOnTheAppStoreCount()
             }
 
-            let exponentialBackoff = exponentialBackoff()
-            let tryReviewOnTheAppStoreCount = tryReviewOnTheAppStoreCount()
+            let currentExponentialBackoff = exponentialBackoff()
+            let currentTryReviewOnTheAppStoreCount = tryReviewOnTheAppStoreCount()
 
-            guard Double(tryReviewOnTheAppStoreCount) > pow(Double(info.exponentialFunctionBase), Double(exponentialBackoff)) else {
+            guard Double(currentTryReviewOnTheAppStoreCount) > pow(Double(info.exponentialFunctionBase), Double(currentExponentialBackoff)) else {
                 return
             }
 
