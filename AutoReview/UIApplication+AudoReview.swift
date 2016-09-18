@@ -12,10 +12,6 @@ extension UIApplication {
 
     func autoreview_openAppStore(forAppWithAppID appID: String) {
 
-        guard !appID.isEmpty else {
-            return
-        }
-
         guard let appURL = URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(appID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8") else {
             return
         }

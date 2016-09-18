@@ -11,6 +11,7 @@ import Foundation
 extension Bundle {
 
     static var autoreview_appVersion: String? {
+
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
 }
