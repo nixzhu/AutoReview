@@ -84,7 +84,7 @@ extension UIViewController {
             do {
                 let action: UIAlertAction = UIAlertAction(title: info.confirmTitle, style: .cancel) { action in
                     setNoNeedReviewOnTheAppStore()
-                    UIApplication.shared.autoreview_openAppStore(forAppWithAppID: info.appID)
+                    UIApplication.shared.autoreview_openAppStoreForApp(withAppID: info.appID)
                 }
                 alertController.addAction(action)
             }
