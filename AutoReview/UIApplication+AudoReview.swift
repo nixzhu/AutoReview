@@ -12,12 +12,15 @@ extension UIApplication {
 
     public func autoreview_openAppStoreForApp(withAppID appID: String) {
 
-        guard let appURL = URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(appID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8") else {
-            return
+        var appURL: URL?
+        if #available(iOS 10.3, *) {
+            appURL = URL(string: "itms-apps://itunes.apple.com/app/id\(appID)?action=write-review")
+        } else {
+            appURL = URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(appID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")
         }
 
-        if canOpenURL(appURL) {
-            openURL(appURL)
+        if let url = appURL, canOpenURL(url) {
+            openURL(url)
         }
     }
 }
