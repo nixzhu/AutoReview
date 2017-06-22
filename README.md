@@ -22,13 +22,13 @@ See the demo.
 ### Carthage
 
 ```ogdl
-github "nixzhu/AutoReview" >= 1.0.0
+github "nixzhu/AutoReview"
 ```
 
 ### CocoaPods
 
 ```ruby
-pod 'AutoReview', '~> 1.0.0'
+pod 'AutoReview'
 ```
 
 ## Contact
